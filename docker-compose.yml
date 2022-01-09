@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  database:
+    image: library/mysql:5.7
+    environment:  # 환경변수
+      MYSQL_USER: msa
+      MYSQL_DATABASE: msa
+      MYSQL_PASSWORD: password
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_HOST: "%"
+      TZ: Asia/Seoul
+    command: # 명령어 실행 - characterset 지정
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - "webflux_data:/var/lib/mysql"
+    platform: linux/x86_64
+    ports:
+      - "3306:3306"
+    container_name: msa_mysql
+
+volumes:
+  webflux_data:

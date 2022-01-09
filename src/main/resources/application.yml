@@ -1,0 +1,19 @@
+spring:
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/anime
+    username: msa
+    password: password
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          r2dbc: DEBUG
+
+# trace=true 파라미터를 주어야 트레이스를 클라이언트에 보여줌
+# e.g. http://localhost:8080/anmies/2?trace=true
+# GlobalExceptionHandler에서 쿼리 받아서 처리함.
+#server:
+#  error:
+#    include-stacktrace: on_param

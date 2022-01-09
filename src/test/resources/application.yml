@@ -1,0 +1,10 @@
+spring:
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/anime
+    username: msa
+    password: password
+
+logging:
+  level:
+    org:
+      springframework: INFO
